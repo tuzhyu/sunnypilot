@@ -78,7 +78,7 @@ class ToyotaCarDocs(CarDocs):
 
 @dataclass
 class ToyotaTSS2PlatformConfig(PlatformConfig):
-  dbc_dict: dict = field(default_factory=lambda: dbc_dict('toyota_nodsu_pt_generated', 'toyota_tss2_adas'))
+  dbc_dict: dict = field(default_factory=lambda: dbc_dict('toyota_nodsu_pt_generated', None))
 
   def init(self):
     self.flags |= ToyotaFlags.TSS2 | ToyotaFlags.NO_STOP_TIMER | ToyotaFlags.NO_DSU
@@ -240,7 +240,6 @@ class CAR(Platforms):
       ToyotaCarDocs("Toyota RAV4 Hybrid 2022", video_link="https://youtu.be/U0nH9cnrFB0"),
     ],
     TOYOTA_RAV4_TSS2.specs,
-    flags=ToyotaFlags.RADAR_ACC,
   )
   TOYOTA_RAV4_TSS2_2023 = ToyotaTSS2PlatformConfig(
     [
